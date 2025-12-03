@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Professional Portfolio</title>
+    <style>
+        /* CSS STYLES - Defines the look and feel */
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #556B2F;
+            --bg-light: #f4f4f4;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        /* Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin-left: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sections General */
+        section {
+            padding: 60px 5%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        /* Home Section */
+        #home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 80vh;
+            background-color: var(--bg-light);
+        }
+
+        .home-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+
+        .home-text h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .home-photo {
+            flex: 1;
+            text-align: center;
+        }
+
+        .home-photo img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--white);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            background-color: #ddd; 
+        }
+
+        /* Card Grid (Experience & Education) */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .date {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Kasoc Section */
+        #kasoc {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 10px;
+            margin: 40px auto;
+        }
+
+        #kasoc h2 {
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        /* --- MEDIA GALLERY STYLES (Image + Text Side-by-Side) --- */
+        .media-list {
+            display: flex;
+            flex-direction: column; 
+            gap: 40px; 
+        }
+
+        .media-entry {
+            display: flex; 
+            align-items: flex-start;
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .media-photo {
+            flex: 0 0 40%; 
+            max-width: 40%;
+            margin-right: 30px;
+        }
+
+        .media-photo img {
+            width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        .media-description {
+            flex: 1; 
+        }
+        /* --- END MEDIA GALLERY STYLES --- */
+
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            background-color: var(--bg-light);
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            #home {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 100px;
+            }
+            .home-text { padding-right: 0; }
+            .home-photo img { width: 250px; height: 250px; margin-bottom: 20px; }
+            
+            /* Responsive Media Gallery */
+            .media-entry {
+                flex-direction: column; 
+            }
+            .media-photo {
+                flex: 1;
+                max-width: 100%;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo"></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#bio">Bio</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#achievement">Achievement</a></li>
+                <li><a href="#kasoc">KASOC</a></li>
+                <li><a href="#gallery">Media Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="home-text">
+            <h1>Hello, I'm Beh Li Enn</h1>
+            <p>I am a Year 1 Student in Ngee Ann Polytechnic. Currently pursuing a diploma in Hotel & Leisure Facilities Management. Welcome to my portfolio.</p>
+            <a href="#gallery" class="btn">View My Work</a>
+        </div>
+        <div class="home-photo">
+            <img src="profile.jpg" alt="Profile Photo of Me">
+        </div>
+    </section>
+
+    <section id="bio">
+        <h2>Bio</h2>
+        <p>
+            Hello, I am Li Enn, a 17 years old student in Ngee Ann Polytechnic. Currently pursuing a diploma in Hotel & Leisure Facilities Management. I enjoy cooking and baking in my free time. I learned to cook my favourite dish Penang assam laksa. I also like to play badminton. 
+and travel to new countries! Trying diverse cusines and engaging with the locals there has sharpen my cultral communication skills and cultural awareness.
+        </p>
+    </section>
+
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Part Time Admin</h3>
+                <p class="date">Yi Fan Engineering | 2024 - Present</p>
+                <ul>
+                    <li>Managing adminstrative task including creating invoice, recording supplier bills and preparing quotation for customer</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="card-grid">
+            
+            <div class="card">
+                <h3>Diploma in Hotel & Leisure Facilities Management</h3>
+                <p class="date">Ngee Ann Polytechnic | 2025 - 2028</p>
+                <p><strong>Relevant Modules:</strong> Hospitality Management, Mechanical Facilities, Electricial Facilities, Financial Accounting</p>
+            </div>
+            
+            <div class="card">
+                <h3>GCE O-Levels</h3>
+                <p class="date">Admiralty Secondary School | 2024 </p>
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="achievement">
+        <h2>Achievements</h2>
+        <ul>
+            <li> SASMO MATH OLYMPIAD 2022 – Participation</li>
+            <li> EDUSAVE GOOD PROGRESS AWARD – 2019</li>
+            <li> EDUSAVE MERIT BURSARY – 2021</li>
+            <li> EDUSAVE AWARD FOR ACHEIVEMENT, GOOD LEADERSHIP AND SERVICE (EAGLES) – 2023</li>
+            <li> EDUSAVE SCHOLARSHIP AWARD – 2023</li>
+            <li> EDUSAVE SCHOLARSHIP AWARD – 2024</li>
+        </ul>
+    </section>
+
+    <section id="kasoc">
+        <h2>KASOC (Knowledge, Ability, Skill, Other Competencies)</h2>
+        
+        <div class="kasoc-content"> 
+            
+            <h3>Knowledge</h3>
+            <ul>
+                <li>Electrical & Facilities Management</li>
+                <li>Understanding of front office operations</li>
+                <li>Financial Accounting Principle</li>
+            </ul>
+
+            <h3>Ability</h3>
+            <ul>
+                <li> Ability to diagnose and solve operational challenge using system thinking</li>
+            </ul>
+
+            <h3>Skill</h3>
+            <ul>
+                <li>Avanced use of Excel for data analysis</li>
+                <li>Experienced in using Xero</li>
+                <li>Proficient in Tableau for data cleaning, analysis and creating dashboard</li>
+            </ul>
+
+            <h3>Other Competencies</h3>
+            <ul>
+                <li>High adaptable and adjust quickly to changing priorities and environment</li>
+                <li>Strong time management skills to meet project deadline</li>
+                <li>Self motivated in independent task and study</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <section id="gallery">
+        <h2>Media Gallery</h2>
+        <div class="media-list">
+
+            <div class="media-entry">
+                <div class="media-photo">
+                    <img src="project-a.jpg" alt="Title of Project A">
+                </div>
+                <div class="media-description">
+                    <h3>GUZHENG Singapore Youth Festival </h3>
+                    <p><strong>Date:</strong> April 2023</p>
+                    <p>During the guzheng syf, I represented my school as part of the ensemble. I remember preparing for this performance required months of practice and close coordinarion with group members. This event deepened my appreciation to traditional music, made me become more perserverant and strengthen my collaborative skills.</p>
+                </div>
+            </div>
+            
+            <div class="media-entry">
+                <div class="media-photo">
+                    <img src="event-coverage.jpg" alt="Event Coverage Photo">
+                </div>
+                <div class="media-description">
+                    <h3>DEX</h3>
+                    <p><strong>Date:</strong> May 2025</p>
+                    <p>During DEX week, we were required to design a prototype adressing food waste in Singapore. We had only one day to complete the entire process and present our idea. It was memorable and taught me the importance of teamwork and staying calm under pressure.</p>
+                </div>
+            </div>
+
+            </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>I'd love to hear from you regarding opportunities or collaborations.</p>
+        <p><strong>Email:</strong> behlienn1128.gmail.com</p>
+        <p><strong>LinkedIn:</strong> www.linkedin.com/in/li-enn-beh-617055318</p>
+        <a href="mailto:behlienn1128@gmail.com" class="btn">Send Me an Email</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Beh Li Enn. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
