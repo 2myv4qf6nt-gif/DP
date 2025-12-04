@@ -7,8 +7,9 @@
     <style>
         /* CSS STYLES - Defines the look and feel */
         :root {
-            --primary-color: #6F4E37;
-            --accent-color: #36454F;
+            /* Current Colors: Primary (Brown for headers) & Accent (Slate Blue for lines/dates) */
+            --primary-color: #6F4E37; /* Warm Coffee Brown */
+            --accent-color: #36454F; /* Dark Slate Blue */
             --bg-light: #f4f4f4;
             --text-dark: #333;
             --white: #ffffff;
@@ -135,6 +136,29 @@
             font-weight: bold;
         }
 
+        /* Certificate Gallery Styles (NEW) */
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Creates 3 columns */
+            gap: 15px;
+            padding-top: 20px;
+        }
+
+        .certificate-grid img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            object-fit: contain;
+            transition: transform 0.2s;
+        }
+
+        .certificate-grid img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        /* End Certificate Gallery Styles */
+
         /* Kasoc Section */
         #kasoc {
             background-color: var(--primary-color);
@@ -147,7 +171,7 @@
             color: var(--white);
             border-color: var(--white);
         }
-
+        
         /* --- MEDIA GALLERY STYLES (Image + Text Side-by-Side) --- */
         .media-list {
             display: flex;
@@ -234,14 +258,14 @@
 
     <header>
         <nav>
-            <div class="logo"></div>
+            <div class="logo">Beh Li Enn</div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#bio">Bio</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#achievement">Achievement</a></li>
-                <li><a href="#kasoc">KASOC</a></li>
+                <li><a href="#certificates">Certificates</a></li> <li><a href="#kasoc">KASOC</a></li>
                 <li><a href="#gallery">Media Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -309,8 +333,20 @@
         </ul>
     </section>
 
+    <section id="certificates">
+        <h2>Certificates</h2>
+        <div class="certificate-grid">
+            <img src="cert-1.jpg" alt="Certificate Title 1">
+            <img src="cert-2.jpg" alt="Certificate Title 2">
+            <img src="cert-3.jpg" alt="Certificate Title 3">
+            <img src="cert-4.jpg" alt="Certificate Title 4">
+            <img src="cert-5.jpg" alt="Certificate Title 5">
+            <img src="cert-6.jpg" alt="Certificate Title 6">
+        </div>
+    </section>
+
     <section id="kasoc">
-        <h2>KASOC (Knowledge, Ability, Skill, Other Competencies)</h2>
+        <h2>KASOCs</h2>
         
         <div class="kasoc-content"> 
             
@@ -369,13 +405,13 @@
                 </div>
             </div>
 
-            </div>
+        </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
         <p>I'd love to hear from you regarding opportunities or collaborations.</p>
-        <p><strong>Email:</strong> behlienn1128.gmail.com</p>
+        <p><strong>Email:</strong> behlienn1128@gmail.com</p>
         <p><strong>LinkedIn:</strong> www.linkedin.com/in/li-enn-beh-617055318</p>
         <a href="mailto:behlienn1128@gmail.com" class="btn">Send Me an Email</a>
     </section>
@@ -385,6 +421,4 @@
     </footer>
 
 </body>
-
 </html>
-
