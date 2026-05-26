@@ -7,9 +7,8 @@
     <style>
         /* CSS STYLES - Defines the look and feel */
         :root {
-            /* Current Colors: Primary (Brown for headers) & Accent (Slate Blue for lines/dates) */
-            --primary-color: #36454F; /* Warm Coffee Brown */
-            --accent-color: #6F4E37; /* Dark Slate Blue */
+            --primary-color: #6F4E37;
+            --accent-color: #36454F;
             --bg-light: #f4f4f4;
             --text-dark: #333;
             --white: #ffffff;
@@ -136,29 +135,6 @@
             font-weight: bold;
         }
 
-        /* Certificate Gallery Styles (NEW) */
-        .certificate-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Creates 3 columns */
-            gap: 15px;
-            padding-top: 20px;
-        }
-
-        .certificate-grid img {
-            width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            object-fit: contain;
-            transition: transform 0.2s;
-        }
-
-        .certificate-grid img:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        /* End Certificate Gallery Styles */
-
         /* Kasoc Section */
         #kasoc {
             background-color: var(--primary-color);
@@ -171,7 +147,7 @@
             color: var(--white);
             border-color: var(--white);
         }
-        
+
         /* --- MEDIA GALLERY STYLES (Image + Text Side-by-Side) --- */
         .media-list {
             display: flex;
@@ -258,13 +234,14 @@
 
     <header>
         <nav>
-            <div class="logo">Beh Li Enn</div>
+            <div class="logo"></div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#bio">Bio</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#achievement">Awards & Credentials</a></li>
+                <li><a href="#achievement">Achievement</a></li>
+                <li><a href="#kasoc">KASOC</a></li>
                 <li><a href="#gallery">Media Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -275,7 +252,7 @@
         <div class="home-text">
             <h1>Hello, I'm Beh Li Enn</h1>
             <p>I am a Year 1 Student in Ngee Ann Polytechnic. Currently pursuing a diploma in Hotel & Leisure Facilities Management. Welcome to my portfolio.</p>
-            <a href="#gallery" class="btn">Know more about me</a>
+            <a href="#gallery" class="btn">View My Work</a>
         </div>
         <div class="home-photo">
             <img src="profile.jpg" alt="Profile Photo of Me">
@@ -285,13 +262,26 @@
     <section id="bio">
         <h2>Bio</h2>
         <p>
-            Hello, I am Li Enn, a 17-year-old student at Ngee Ann Polytechnic, currently pursuing a Diploma in Hotel & Leisure Facilities Management. I am self motivated and independent learner, I prefer to work through challanges on my own first before seeking for help.  In my free time, I enjoy cooking and baking, and I have even learned to prepare my favourite dish, Penang assam laksa.
+            Hello, I am Li Enn, a 17-year-old student at Ngee Ann Polytechnic, currently pursuing a Diploma in Hotel & Leisure Facilities Management. In my free time, I enjoy cooking and baking, and I have even learned to prepare my favourite dish, Penang assam laksa. I also love playing badminton and travelling to new countries. Exploring diverse cuisines and interacting with local communities during my travels has strengthened my cultural communication skills and deepened my cultural awareness.
         </p>
     </section>
 
     <section id="experience">
         <h2>Experience</h2>
         <div class="card-grid">
+
+            <div class="card">
+                <h3>Cinema Service Crew</h3>
+                <p class="date">GOLDEN VILLAGE, Singapore | 03/2026 - Present</p>
+                <ul>
+                    <li>Processed high-volume POS transactions exceeding $1,000 per shift across cash, card, and digital payment methods, maintaining zero discrepancy records through end-of-shift reconciliation.</li>
+                    <li>Welcomed and assisted guests in a high-traffic public environment, resolving inquiries, complaints, and special requests professionally and promptly to ensure a positive guest experience.</li>
+                    <li>Managed ticket bookings and reservations, coordinating guest flow across multiple sessions to maintain punctual start times.</li>
+                    <li>Maintained cleanliness and presentation across 6 auditoriums, executing rapid turnovers between screenings while upholding brand hygiene and safety standards.</li>
+                    <li>Supported team operations during peak periods, adhering to SOPs for safety, hygiene, and guest conduct to ensure smooth service delivery.</li>
+                </ul>
+            </div>
+
             <div class="card">
                 <h3>Part Time Admin</h3>
                 <p class="date">Yi Fan Engineering | 2024 - Present</p>
@@ -300,8 +290,6 @@
                 </ul>
             </div>
             
-            </div>
-    </section>
         </div>
     </section>
 
@@ -317,36 +305,26 @@
             
             <div class="card">
                 <h3>GCE O-Levels</h3>
-                <p class="date">Admiralty Secondary School | 2024 </p>
+                <p class="date">Admiralty Secondary School | 2021-2024 </p>
             </div>
             
         </div>
     </section>
 
     <section id="achievement">
-        <h2>Awards & Credentials</h2>
+        <h2>Achievements</h2>
         <ul>
             <li> SASMO MATH OLYMPIAD 2022 – Participation</li>
-            <li> Food  Hygiene Certificate Level 1</li>
             <li> EDUSAVE GOOD PROGRESS AWARD – 2019</li>
             <li> EDUSAVE MERIT BURSARY – 2021</li>
             <li> EDUSAVE AWARD FOR ACHEIVEMENT, GOOD LEADERSHIP AND SERVICE (EAGLES) – 2023</li>
             <li> EDUSAVE SCHOLARSHIP AWARD – 2023</li>
             <li> EDUSAVE SCHOLARSHIP AWARD – 2024</li>
         </ul>
-
-        <div class="certificate-grid">
-            <img src="cert-1.jpg" alt="Certificate Title 1">
-            <img src="cert-2.jpg" alt="Certificate Title 2">
-            <img src="cert-3.jpg" alt="Certificate Title 3">
-            <img src="cert-4.jpg" alt="Certificate Title 4">
-            <img src="cert-5.jpg" alt="Certificate Title 5">
-            <img src="cert-6.jpg" alt="Certificate Title 6">
-        </div>
     </section>
 
     <section id="kasoc">
-        <h2>KASOCs</h2>
+        <h2>KASOC (Knowledge, Ability, Skill, Other Competencies)</h2>
         
         <div class="kasoc-content"> 
             
@@ -355,13 +333,11 @@
                 <li>Electrical & Facilities Management</li>
                 <li>Understanding of front office operations</li>
                 <li>Financial Accounting Principle</li>
-                <li>Occupational Health & Saftety Bizsafe Level 2 Workplace Safety and Health Council</li>
-                <li>Data Analytics and Research</li>
             </ul>
 
             <h3>Ability</h3>
             <ul>
-                <li> Proficient at English and Chinese</li>
+                <li> Ability to diagnose and solve operational challenge using system thinking</li>
             </ul>
 
             <h3>Skill</h3>
@@ -369,7 +345,6 @@
                 <li>Avanced use of Excel for data analysis</li>
                 <li>Experienced in using Xero</li>
                 <li>Proficient in Tableau for data cleaning, analysis and creating dashboard</li>
-                <li>Experience in using Salesforce </li>
             </ul>
 
             <h3>Other Competencies</h3>
@@ -393,7 +368,7 @@
                 <div class="media-description">
                     <h3>GUZHENG Singapore Youth Festival </h3>
                     <p><strong>Date:</strong> April 2023</p>
-                    <p>During the Guzheng SYF, I represented my school as part of the ensemble. I remember preparing for this performance took months of practice and close coordinarion with group members. The intensive preparation developed my discipline and perseverance under pressure. This experience strengthened my collaborative skills and also deepened my appreciation for traditional music. </p>
+                    <p>During the guzheng syf, I represented my school as part of the ensemble. I remember preparing for this performance required months of practice and close coordinarion with group members. This event deepened my appreciation to traditional music, made me become more perserverant and strengthen my collaborative skills.</p>
                 </div>
             </div>
             
@@ -404,44 +379,19 @@
                 <div class="media-description">
                     <h3>DEX</h3>
                     <p><strong>Date:</strong> May 2025</p>
-                    <p>During DEX week, we were required to design a prototype adressing food waste in Singapore. We had only one day to complete the entire process and present our idea. We designed a dustbin fertiliser which turn leftover food into natural fertiliser. It was memorable and taught me the importance of teamwork and staying calm under pressure.</p>
+                    <p>During DEX week, we were required to design a prototype adressing food waste in Singapore. We had only one day to complete the entire process and present our idea. It was memorable and taught me the importance of teamwork and staying calm under pressure.</p>
                 </div>
             </div>
 
-            <div class="media-entry">
-                <div class="media-photo">
-                    <img src="volunteering.jpg" alt="Volunteering Event">
-                </div>
-                <div class="media-description">
-                    <h3>Meal on Wheel Volunteering</h3>
-                    <p><strong>Date:</strong> Oct 2025</p>
-                    <p>I assisted in delivering meals to households in need. We are required to collect packed meals at Bukit Gombak, plan routes independently and navigate to multiple addresses. Through this experience, I strengthened my sense of responsibility, improved my ability to work independently in unfamiliar areas and gained a deeper understanding of community needs. </p>
-                </div>
             </div>
-
-             <div class="media-entry">
-                <div class="media-photo">
-                    <img src="marriot.jpg" alt="Marriot practical">
-                </div>
-                <div class="media-description">
-                    <h3>Practical Lesson at Marriot Tang Hotel Orchard</h3>
-                    <p><strong>Date:</strong> May 2025</p>
-                    <p>I attended practical training sessions at Tang Marriott Hotel in Orchard, where I gained hands-on experience in banquet operations. I assisted in event setup, observed service coordination, and learned how timing, teamwork, and attention to detail contribute to a smooth guest experience.</p>
-                </div>
-            </div>
-
-        </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
         <p>I'd love to hear from you regarding opportunities or collaborations.</p>
-        <p><strong>Email:</strong> behlienn1128@gmail.com</p>
+        <p><strong>Email:</strong> behlienn1128.gmail.com</p>
         <p><strong>LinkedIn:</strong> www.linkedin.com/in/li-enn-beh-617055318</p>
-
         <a href="mailto:behlienn1128@gmail.com" class="btn">Send Me an Email</a>
-        
-        <a href="beh-li-enn-cv.pdf" class="btn" download>Click to Download My CV</a>
     </section>
 
     <footer>
@@ -450,7 +400,6 @@
 
 </body>
 </html>
-
 
 
 
