@@ -3,15 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Professional Portfolio</title>
+    <title>Beh Li Enn | Facilities Management Student Portfolio</title>
+    <meta name="description" content="Portfolio of Beh Li Enn, a Hotel &amp; Leisure Facilities Management student at Ngee Ann Polytechnic. Facilities coursework, workplace safety, operations experience and projects.">
     <style>
         /* CSS STYLES - Defines the look and feel */
         :root {
-            --primary-color: #6F4E37;
-            --accent-color: #36454F;
-            --bg-light: #f4f4f4;
-            --text-dark: #333;
+            --primary-color: #1E3049;   /* navy: headings, skills band, footer */
+            --accent-color: #2A7F7A;    /* teal: buttons, underlines, tags */
+            --accent-text: #1F6B66;     /* darker teal for small text, keeps contrast readable */
+            --bg-light: #F3F6F8;
+            --text-dark: #1F2933;
             --white: #ffffff;
+        }
+
+        html {
+            scroll-padding-top: 80px; /* keeps section titles clear of the sticky header */
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            html { scroll-behavior: smooth; }
         }
 
         body {
@@ -20,6 +30,16 @@
             padding: 0;
             line-height: 1.6;
             color: var(--text-dark);
+        }
+
+        /* Visible keyboard focus */
+        a:focus-visible {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 3px;
+        }
+        #kasoc a:focus-visible,
+        footer a:focus-visible {
+            outline-color: var(--white);
         }
 
         /* Navigation */
@@ -44,11 +64,14 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--primary-color);
+            text-decoration: none;
         }
 
         .nav-links {
             list-style: none;
             display: flex;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links li {
@@ -63,7 +86,8 @@
         }
 
         .nav-links a:hover {
-            color: var(--accent-color);
+            color: var(--accent-text);
+            text-decoration: underline;
         }
 
         /* Sections General */
@@ -112,7 +136,43 @@
             border-radius: 50%;
             border: 5px solid var(--white);
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            background-color: #ddd; 
+            background-color: #ddd;
+        }
+
+        /* Buttons */
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 2px solid var(--accent-color);
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent-text);
+            border-color: var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            color: var(--white);
+            background: var(--primary-color);
+            border-color: var(--primary-color);
         }
 
         /* Card Grid (Experience & Education) */
@@ -127,20 +187,64 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border: 1px solid #E1E7EC;
+        }
+
+        .card h3 {
+            margin-top: 0;
         }
 
         .date {
-            color: var(--accent-color);
+            color: var(--accent-text);
             font-size: 0.9rem;
             font-weight: bold;
         }
 
-        /* Kasoc Section */
+        /* Module tags (Education) */
+        .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 0;
+            margin: 8px 0 16px;
+            list-style: none;
+        }
+
+        .tag {
+            background: var(--white);
+            border: 1px solid #cfcfcf;
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: 0.9rem;
+        }
+
+        .tag.core {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: var(--white);
+        }
+
+        .card h4 {
+            margin: 14px 0 0;
+        }
+
+        /* Achievements */
+        .award-group h3 {
+            margin: 0 0 8px;
+            color: var(--accent-text);
+        }
+
+        .award-group + .award-group {
+            margin-top: 24px;
+        }
+
+        /* Skills section (KASOC) */
         #kasoc {
             background-color: var(--primary-color);
             color: var(--white);
             border-radius: 10px;
             margin: 40px auto;
+            padding: 70px 6%;
         }
 
         #kasoc h2 {
@@ -148,15 +252,37 @@
             border-color: var(--white);
         }
 
+        .kasoc-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 60px;
+        }
+
+        .kasoc-content h3 {
+            margin: 0 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.35);
+        }
+
+        .kasoc-content ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .kasoc-content li {
+            margin-bottom: 10px;
+            line-height: 1.55;
+        }
+
         /* --- MEDIA GALLERY STYLES (Image + Text Side-by-Side) --- */
         .media-list {
             display: flex;
-            flex-direction: column; 
-            gap: 40px; 
+            flex-direction: column;
+            gap: 40px;
         }
 
         .media-entry {
-            display: flex; 
+            display: flex;
             align-items: flex-start;
             background: var(--bg-light);
             padding: 20px;
@@ -165,7 +291,7 @@
         }
 
         .media-photo {
-            flex: 0 0 40%; 
+            flex: 0 0 40%;
             max-width: 40%;
             margin-right: 30px;
         }
@@ -177,10 +303,13 @@
         }
 
         .media-description {
-            flex: 1; 
+            flex: 1;
+        }
+
+        .media-description h3 {
+            margin-top: 0;
         }
         /* --- END MEDIA GALLERY STYLES --- */
-
 
         /* Contact Section */
         #contact {
@@ -189,14 +318,12 @@
             margin-bottom: 40px;
         }
 
-        .btn {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--white);
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
+        #contact .btn-row {
+            justify-content: center;
+        }
+
+        #contact a:not(.btn) {
+            color: var(--accent-text);
         }
 
         /* Footer */
@@ -209,17 +336,36 @@
 
         /* Mobile Responsive */
         @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 8px;
+                padding: 0.75rem 5%;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-links li {
+                margin: 0 10px;
+            }
+
             #home {
                 flex-direction: column-reverse;
                 text-align: center;
-                padding-top: 100px;
+                padding-top: 40px;
             }
             .home-text { padding-right: 0; }
+            .home-text h1 { font-size: 2.2rem; }
             .home-photo img { width: 250px; height: 250px; margin-bottom: 20px; }
-            
+            .btn-row { justify-content: center; }
+            .kasoc-content { grid-template-columns: 1fr; gap: 32px; }
+            #kasoc { padding: 50px 6%; border-radius: 0; }
+
             /* Responsive Media Gallery */
             .media-entry {
-                flex-direction: column; 
+                flex-direction: column;
             }
             .media-photo {
                 flex: 1;
@@ -233,37 +379,130 @@
 <body>
 
     <header>
-        <nav>
-            <div class="logo"></div>
+        <nav aria-label="Main">
+            <a href="#home" class="logo">Beh Li Enn</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#bio">Bio</a></li>
-                <li><a href="#experience">Experience</a></li>
+                <li><a href="#bio">About</a></li>
                 <li><a href="#education">Education</a></li>
-                <li><a href="#achievement">Achievement</a></li>
-                <li><a href="#kasoc">KASOC</a></li>
-                <li><a href="#gallery">Media Gallery</a></li>
+                <li><a href="#kasoc">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#gallery">Projects</a></li>
+                <li><a href="#achievement">Awards</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
+    <main>
+
     <section id="home">
         <div class="home-text">
             <h1>Hello, I'm Beh Li Enn</h1>
-            <p>I am a Year 2 Student in Ngee Ann Polytechnic. Currently pursuing a diploma in Hotel & Leisure Facilities Management. Welcome to my portfolio.</p>
-            <a href="#gallery" class="btn">View My Work</a>
+            <p>I'm a Year 2 Hotel &amp; Leisure Facilities Management student at Ngee Ann Polytechnic, building skills in facilities operations, workplace safety and building systems.</p>
+            <div class="btn-row">
+                <a href="Beh_Li_Enn_Resume.pdf" class="btn" target="_blank" rel="noopener">Download my resume</a>
+                <a href="#gallery" class="btn btn-outline">See my projects</a>
+            </div>
         </div>
         <div class="home-photo">
-            <img src="profile.jpg" alt="Profile Photo of Me">
+            <img src="profile.jpg" alt="Portrait of Beh Li Enn">
         </div>
     </section>
 
     <section id="bio">
-        <h2>Bio</h2>
+        <h2>About me</h2>
         <p>
-            Hello, I am Li Enn, a 17-year-old student at Ngee Ann Polytechnic, currently pursuing a Diploma in Hotel & Leisure Facilities Management. Through my studies and part-time work in customer service, I developed strong communication, teamwork, and problem-solving skills. I am passionate about meeting people from different backgrounds and hope to continue growing through industry exposure and hands-on learning opportunities in the hospitality sector.
+            I'm Li Enn, a Year 2 Hotel &amp; Leisure Facilities Management student at Ngee Ann Polytechnic with a GPA of 3.7. My coursework covers mechanical and electrical facilities, building technology and sustainable building systems, and I've applied safety, hygiene and cleanliness standards in a busy cinema.
         </p>
+        <p>
+            Through my studies and part-time work, I've built strong communication, teamwork and problem-solving skills, and I enjoy working with people from different backgrounds. I'm looking for a facilities management internship where I can learn how buildings are run day to day.
+        </p>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="card-grid">
+
+            <div class="card">
+                <h3>Diploma in Hotel &amp; Leisure Facilities Management</h3>
+                <p class="date">Ngee Ann Polytechnic | 2025 - 2028</p>
+                <p><strong>GPA:</strong> 3.7</p>
+
+                <h4>Facilities modules</h4>
+                <ul class="tag-list">
+                    <li class="tag core">Mechanical Facilities</li>
+                    <li class="tag core">Electrical Facilities</li>
+                    <li class="tag core">Building Technology</li>
+                    <li class="tag core">Sustainable Building System</li>
+                    <li class="tag core">Environmental Health and Workplace Safety</li>
+                </ul>
+
+                <h4>Other modules</h4>
+                <ul class="tag-list">
+                    <li class="tag">Financial Accounting</li>
+                    <li class="tag">Hospitality Management</li>
+                    <li class="tag">Event Management</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3>GCE O-Levels</h3>
+                <p class="date">Admiralty Secondary School | 2021 - 2024</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="kasoc">
+        <h2>Skills &amp; Competencies (KASOC)</h2>
+
+        <div class="kasoc-content">
+
+            <div>
+                <h3>Knowledge</h3>
+                <ul>
+                    <li>Mechanical and electrical facilities</li>
+                    <li>Building technology</li>
+                    <li>Sustainable building systems</li>
+                    <li>Environmental health and workplace safety</li>
+                    <li>AutoCAD</li>
+                    <li>Financial accounting principles</li>
+                    <li>Front office operations</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Ability</h3>
+                <ul>
+                    <li>Diagnosing and solving operational challenges using systems thinking</li>
+                    <li>Managing flow under pressure</li>
+                    <li>Guest complaint resolution</li>
+                    <li>Handling high-volume transactions</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Skill</h3>
+                <ul>
+                    <li>Advanced use of Excel for data analysis</li>
+                    <li>Proficient in Tableau for data cleaning, analysis and creating dashboards</li>
+                    <li>Experienced in using Xero</li>
+                    <li>Opera system</li>
+                    <li>Guest communication</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Other Competencies</h3>
+                <ul>
+                    <li>Highly adaptable, adjusting quickly to changing priorities and environments</li>
+                    <li>Strong time management to meet project deadlines</li>
+                    <li>Self-motivated in independent tasks and study</li>
+                </ul>
+            </div>
+
+        </div>
     </section>
 
     <section id="experience">
@@ -272,146 +511,111 @@
 
             <div class="card">
                 <h3>Cinema Service Crew</h3>
-                <p class="date">Golden Village | 03/2026 - Present</p>
+                <p class="date">Golden Village | Mar 2026 - Present</p>
                 <ul>
-                    <li>Processed high-volume POS transactions exceeding $1,000 per shift across cash, card, and digital payment methods, maintaining zero discrepancy records through end-of-shift reconciliation.</li>
-                    <li>Welcomed and assisted guests in a high-traffic public environment, resolving inquiries, complaints, and special requests professionally and promptly to ensure a positive guest experience.</li>
-                    <li>Managed ticket bookings and reservations, coordinating guest flow across multiple sessions to maintain punctual start times.</li>
-                    <li>Maintained cleanliness and presentation across 6 auditoriums, executing rapid turnovers between screenings while upholding brand hygiene and safety standards.</li>
-                    <li>Supported team operations during peak periods, adhering to SOPs for safety, hygiene, and guest conduct to ensure smooth service delivery.</li>
+                    <li>Maintained cleanliness, presentation and safety standards across 6 auditoriums, executing rapid turnovers between screenings in line with brand hygiene and safety SOPs.</li>
+                    <li>Adhered to SOPs for safety, hygiene and guest conduct during peak periods, supporting smooth daily venue operations.</li>
+                    <li>Resolved guest inquiries, complaints and special requests promptly and professionally in a high-traffic public environment.</li>
+                    <li>Coordinated guest flow across multiple sessions through ticket bookings and reservations to keep screenings starting on time.</li>
+                    <li>Processed POS transactions exceeding $1,000 per shift across cash, card and digital payments, maintaining zero discrepancies through end-of-shift reconciliation.</li>
                 </ul>
             </div>
 
             <div class="card">
                 <h3>Part Time Admin</h3>
-                <p class="date">Yi Fan Engineering | 06/2024 - Present</p>
+                <p class="date">Yi Fan Engineering | Jun 2024 - Present</p>
                 <ul>
-                    <li>Managing administrative tasks including creating invoices, recording supplier bills and preparing quotations for customer</li>
+                    <li>Coordinated with suppliers on procurement and payment processes, keeping financial documentation accurate and up to date.</li>
+                    <li>Managed client invoices in Xero, maintaining error-free billing records and timely accounts payable updates.</li>
+                    <li>Prepared and issued client quotations with accurate details and prompt turnaround.</li>
+                    <li>Handled 15+ daily customer inquiries by phone and email with responsive, professional communication.</li>
+                    <li>Streamlined billing and administrative coordination across departments to support daily operational workflows.</li>
                 </ul>
             </div>
-            
-        </div>
-    </section>
-
-    <section id="education">
-        <h2>Education</h2>
-        <div class="card-grid">
-            
-            <div class="card">
-                <h3>Diploma in Hotel & Leisure Facilities Management</h3>
-                <p class="date">Ngee Ann Polytechnic | 2025 - 2028</p>
-                <p><strong>Relevant Modules:</strong> Hospitality Management, Mechanical Facilities, Electrical Facilities, Financial Accounting, Event Management, Building Technology, Sustainable Building System</p>
-            </div>
-            
-            <div class="card">
-                <h3>GCE O-Levels</h3>
-                <p class="date">Admiralty Secondary School | 2021-2024 </p>
-            </div>
-            
-        </div>
-    </section>
-
-    <section id="achievement">
-        <h2>Achievements</h2>
-        <ul>
-            <li> SASMO MATH OLYMPIAD 2022 – Participation</li>
-            <li> EDUSAVE GOOD PROGRESS AWARD – 2019</li>
-            <li> EDUSAVE MERIT BURSARY – 2021</li>
-            <li> EDUSAVE AWARD FOR ACHEIVEMENT, GOOD LEADERSHIP AND SERVICE (EAGLES) – 2023</li>
-            <li> EDUSAVE SCHOLARSHIP AWARD – 2023</li>
-            <li> EDUSAVE SCHOLARSHIP AWARD – 2024</li>
-        </ul>
-    </section>
-
-    <section id="kasoc">
-        <h2>KASOC (Knowledge, Ability, Skill, Other Competencies)</h2>
-        
-        <div class="kasoc-content"> 
-            
-            <h3>Knowledge</h3>
-            <ul>
-                <li>Electrical & Facilities Management</li>
-                <li>Understanding of front office operations</li>
-                <li>Financial Accounting Principle</li>
-                <li>AutoCAD</li>
-                <li>Building Technology</li>
-                <li>Sustainable Building System</li>
-            </ul>
-
-            <h3>Ability</h3>
-            <ul>
-                <li> Ability to diagnose and solve operational challenges using system thinking</li>
-                <li>Handling high volume transaction</li>
-                <li>Guest complaint resolution</li>
-                <li>Managing flow under pressure</li>
-            </ul>
-
-            <h3>Skill</h3>
-            <ul>
-                <li>Advanced use of Excel for data analysis</li>
-                <li>Experienced in using Xero</li>
-                <li>Proficient in Tableau for data cleaning, analysis, and creating dashboard</li>
-                <li>Opera system</li>
-                <li>Guest communication & upselling</li>
-            </ul>
-
-            <h3>Other Competencies</h3>
-            <ul>
-                <li>High adaptable and adjust quickly to changing priorities and environment</li>
-                <li>Strong time management skills to meet project deadline</li>
-                <li>Self motivated in independent tasks and study</li>
-            </ul>
 
         </div>
     </section>
 
     <section id="gallery">
-        <h2>Media Gallery</h2>
+        <h2>Projects &amp; Activities</h2>
         <div class="media-list">
 
             <div class="media-entry">
                 <div class="media-photo">
-                    <img src="project-a.jpg" alt="Title of Project A">
+                    <img src="event-coverage.jpg" alt="Photo from DEX week, May 2025" loading="lazy">
                 </div>
                 <div class="media-description">
-                    <h3>GUZHENG Singapore Youth Festival </h3>
-                    <p><strong>Date:</strong> April 2023</p>
-                    <p>During the guzheng syf, I represented my school as part of the ensemble. I remember preparing for this performance required months of practice and close coordinarion with group members. This event deepened my appreciation to traditional music, made me become more perserverant and strengthen my collaborative skills.</p>
-                </div>
-            </div>
-            
-            <div class="media-entry">
-                <div class="media-photo">
-                    <img src="event-coverage.jpg" alt="Event Coverage Photo">
-                </div>
-                <div class="media-description">
-                    <h3>DEX</h3>
+                    <h3>DEX: Designing a solution for food waste</h3>
                     <p><strong>Date:</strong> May 2025</p>
-                    <p>During DEX week, we were required to design a prototype addressing food waste in Singapore. We had only one day to complete the entire process and present our idea. It was memorable and taught me the importance of teamwork and staying calm under pressure.</p>
+                    <p>During DEX week, we had to design a prototype addressing food waste in Singapore, a sustainability challenge. We had only one day to complete the entire process and present our idea. It taught me the importance of teamwork and staying calm under pressure.</p>
                 </div>
             </div>
+
             <div class="media-entry">
                 <div class="media-photo">
-                    <img src="volunteering.jpg" alt="Volunteering Photo">
+                    <img src="volunteering.jpg" alt="Photo from Meals on Wheels volunteering, October 2025" loading="lazy">
                 </div>
                 <div class="media-description">
-                    <h3>Meal on Wheel Volunteering</h3>
+                    <h3>Meals on Wheels volunteering</h3>
                     <p><strong>Date:</strong> Oct 2025</p>
-                    <p>I assisted in delivering meals to households in need. We are required to collect packed meals at Bukit Gombak, plan routes independently and navigate to multiple addresses. Through this experience, I strengthened my sense of responsibility, improved my ability to work independently in unfamiliar areas and gained a deeper understanding of community needs.</p>
+                    <p>I helped deliver meals to households in need. We collected packed meals at Bukit Gombak, planned routes independently and navigated to multiple addresses. This strengthened my sense of responsibility, improved my ability to work independently in unfamiliar areas and gave me a deeper understanding of community needs.</p>
                 </div>
             </div>
+
+            <div class="media-entry">
+                <div class="media-photo">
+                    <img src="project-a.jpg" alt="Photo from the guzheng ensemble at the Singapore Youth Festival, April 2023" loading="lazy">
+                </div>
+                <div class="media-description">
+                    <h3>Guzheng ensemble, Singapore Youth Festival</h3>
+                    <p><strong>Date:</strong> April 2023</p>
+                    <p>At the Singapore Youth Festival (SYF), I represented my school as part of the guzheng ensemble. Preparing for the performance took months of practice and close coordination with group members. The event deepened my appreciation of traditional music and strengthened my perseverance and collaboration skills.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="achievement">
+        <h2>Awards &amp; Achievements</h2>
+
+        <div class="award-group">
+            <h3>Ngee Ann Polytechnic</h3>
+            <ul>
+                <li>Best performance in the Environmental Health and Workplace Safety module, Apr 2025 Semester</li>
+                <li>Director's List for excellent academic performance, Oct 2025 Semester</li>
+                <li>Second most outstanding performance in Level 1.1, Oct 2025 Semester</li>
+                <li>Edusave Certificate of Academic Achievement, 2026</li>
+            </ul>
+        </div>
+
+        <div class="award-group">
+            <h3>Earlier awards</h3>
+            <ul>
+                <li>Edusave Scholarship Award, 2023 and 2024</li>
+                <li>Edusave Award for Achievement, Good Leadership and Service (EAGLES), 2023</li>
+                <li>SASMO Math Olympiad, Participation, 2022</li>
+                <li>Edusave Merit Bursary, 2021</li>
+                <li>Edusave Good Progress Award, 2019</li>
+            </ul>
+        </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
-        <p>I'd love to hear from you regarding opportunities or collaborations.</p>
-        <p><strong>Email:</strong> behlienn1128@gmail.com</p>
-        <p><strong>LinkedIn:</strong> www.linkedin.com/in/li-enn-beh-617055318</p>
-        <a href="mailto:behlienn1128@gmail.com" class="btn">Send Me an Email</a>
+        <p>I'm looking for a facilities management internship. Feel free to get in touch.</p>
+        <p><strong>Email:</strong> <a href="mailto:behlienn1128@gmail.com">behlienn1128@gmail.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/li-enn-beh-617055318" target="_blank" rel="noopener">linkedin.com/in/li-enn-beh-617055318</a></p>
+        <div class="btn-row">
+            <a href="mailto:behlienn1128@gmail.com" class="btn">Send me an email</a>
+            <a href="Beh_Li_Enn_Resume.pdf" class="btn btn-outline" target="_blank" rel="noopener">Download my resume</a>
+        </div>
     </section>
 
+    </main>
+
     <footer>
-        <p>&copy; 2025 Beh Li Enn. All rights reserved.</p>
+        <p>&copy; 2026 Beh Li Enn. All rights reserved.</p>
     </footer>
 
 </body>
